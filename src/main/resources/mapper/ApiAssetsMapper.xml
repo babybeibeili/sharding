@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sharding.mapper.ApiAssetsMapper">
+    <resultMap id="BaseResultMap" type="com.example.sharding.entity.ApiAssets">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="level" jdbcType="INTEGER" property="level"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="file_id" jdbcType="INTEGER" property="fileId"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from api_assets order by id asc
+    </select>
+
+    <insert id="insert" parameterType="com.example.sharding.entity.ApiFiles">
+        insert into api_assets (id, name, level,type,file_id)
+        values (#{id}, #{name}, #{level},#{type},#{fileId})
+    </insert>
+
+</mapper>
