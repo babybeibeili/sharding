@@ -2,6 +2,7 @@ package com.example.sharding.mapper;
 
 import com.example.sharding.entity.ApiProperties;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,5 +12,5 @@ public interface ApiPropertiesMapper {
 
     ApiProperties selectByPrimaryKey(Integer id);
 
-    List<ApiProperties> selectAll();
+    List<ApiProperties> selectAll(@Param("fileId")Integer fileId);
 }

@@ -70,4 +70,12 @@ public class Result<T> {
         return ret;
     }
 
+    public static <T> Result<T> success(Integer code,T data,String msg) {
+        Result<T> ret = new Result<T>();
+        ret.setCode(code);
+        ret.setData(data);
+        ret.setMessage(msg);
+        return ret;
+    }
+
 }

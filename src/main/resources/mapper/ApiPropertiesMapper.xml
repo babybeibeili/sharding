@@ -10,12 +10,18 @@
     </resultMap>
 
     <select id="selectAll" resultMap="BaseResultMap">
-        select * from api_properties order by id asc
+        select * from api_properties
+        <where>
+            <if test="fileId != 0">
+                file_id=#{fileId}
+            </if>
+        </where>
+        order by id asc
     </select>
 
     <insert id="insert" parameterType="com.example.sharding.entity.ApiFiles">
-        insert into api_properties (id, name, file_id,value,unit)
-        values (#{id}, #{name}, #{fileId},#{value},#{unit})
+        insert into api_properties (name, file_id,value,unit)
+        values (#{name}, #{fileId},#{value},#{unit})
     </insert>
 
 </mapper>
