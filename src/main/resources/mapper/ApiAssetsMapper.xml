@@ -24,4 +24,8 @@
         values (#{name}, #{level},#{type},#{fileId})
     </insert>
 
+    <delete id="deleteAll">
+        delete from api_assets
+    </delete>
+
 </mapper>

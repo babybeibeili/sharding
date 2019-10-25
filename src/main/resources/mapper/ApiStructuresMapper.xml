@@ -22,4 +22,8 @@
         insert into api_structures (name, file_id,level)
         values (#{name}, #{fileId},#{level})
     </insert>
+
+    <delete id="deleteAll">
+        delete from api_structures
+    </delete>
 </mapper>

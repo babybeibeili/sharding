@@ -19,4 +19,7 @@
         values (#{id}, #{name}, #{size},#{status},#{uploadTime},#{version})
     </insert>
 
+    <delete id="deleteAll">
+        delete from api_files
+    </delete>
 </mapper>

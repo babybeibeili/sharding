@@ -10,6 +10,8 @@ import java.util.List;
 public interface ApiPropertiesMapper {
     int insert(ApiProperties record);
 
+    void deleteAll();
+
     ApiProperties selectByPrimaryKey(Integer id);
 
     List<ApiProperties> selectAll(@Param("fileId")Integer fileId);

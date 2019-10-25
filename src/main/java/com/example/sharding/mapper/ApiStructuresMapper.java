@@ -13,4 +13,6 @@ public interface ApiStructuresMapper {
     ApiStructures selectByPrimaryKey(Integer id);
 
     List<ApiStructures> selectAll(@Param("fileId")Integer fileId);
+
+    void deleteAll();
 }

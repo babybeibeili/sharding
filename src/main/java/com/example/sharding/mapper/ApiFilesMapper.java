@@ -13,4 +13,6 @@ public interface ApiFilesMapper {
     ApiFiles selectByPrimaryKey(Integer id);
 
     List<ApiFiles> selectAll();
+
+    void deleteAll();
 }

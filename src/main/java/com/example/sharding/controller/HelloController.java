@@ -69,6 +69,15 @@ public class HelloController {
         return "insert numbers: " + (i - 1);
     }
 
+    @RequestMapping("/delFiles")
+    public String delFiles() {
+
+        System.out.println("delete files--------------");
+        filesMapper.deleteAll();
+        System.out.println("over..........");
+        return "delete is over ";
+    }
+
     @RequestMapping("/fileList")
     public Result fileList() {
 
@@ -91,6 +100,15 @@ public class HelloController {
         }
         System.out.println("over..........");
         return "insert numbers: " + (i - 1);
+    }
+
+    @RequestMapping("/delAssets")
+    public String delAssets() {
+
+        System.out.println("delete assets--------------");
+        assetsMapper.deleteAll();
+        System.out.println("over..........");
+        return "delete is over ";
     }
 
     @RequestMapping("/assetsList")
@@ -116,6 +134,15 @@ public class HelloController {
         return "insert numbers: " + (i - 1);
     }
 
+    @RequestMapping("/delStructures")
+    public String delStructures() {
+
+        System.out.println("delete structures--------------");
+        structuresMapper.deleteAll();
+        System.out.println("over..........");
+        return "delete is over ";
+    }
+
     @RequestMapping("/structuresList")
     public Result structuresList(@RequestParam(defaultValue = "0") Integer id) {
 
@@ -124,11 +151,12 @@ public class HelloController {
     }
 
     @RequestMapping("/addProperties")
-    public String addProperties() {
+    public String addProperties(@RequestParam(defaultValue = "0") Integer size) {
 
         System.out.println("Insert Properties--------------");
         int i = 0;
-        for (i = 1; i <= 800; i++) {
+        if(size==0) size=800;
+        for (i = 1; i <= size; i++) {
             ApiProperties info = new ApiProperties();
             info.setName("Property" + i);
             info.setValue(String.valueOf(i + (int) (Math.random() * 50 + 500)));
@@ -138,6 +166,15 @@ public class HelloController {
         }
         System.out.println("over..........");
         return "insert numbers: " + (i - 1);
+    }
+
+    @RequestMapping("/delProperties")
+    public String delProperties() {
+
+        System.out.println("delete Properties--------------");
+        propertiesMapper.deleteAll();
+        System.out.println("over..........");
+        return "delete is over ";
     }
 
     @RequestMapping("/PropertiesList")
@@ -192,6 +229,18 @@ public class HelloController {
         DefaultKeyGenerator generator1 = new DefaultKeyGenerator();
         System.out.println(generator1.generateKey());
         return "insert numbers: " + (i - 1);
+    }
+
+    @RequestMapping("/delAll")
+    public String delAll() {
+
+        System.out.println("delete all infomations--------------");
+        filesMapper.deleteAll();
+        assetsMapper.deleteAll();
+        structuresMapper.deleteAll();
+        propertiesMapper.deleteAll();
+        System.out.println("over..........");
+        return "delete is over ";
     }
 
 }

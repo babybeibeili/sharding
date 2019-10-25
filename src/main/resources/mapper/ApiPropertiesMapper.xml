@@ -24,4 +24,8 @@
         values (#{name}, #{fileId},#{value},#{unit})
     </insert>
 
+    <delete id="deleteAll">
+        delete from api_properties
+    </delete>
+
 </mapper>
