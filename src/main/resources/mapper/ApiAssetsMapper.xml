@@ -7,6 +7,7 @@
         <result column="level" jdbcType="INTEGER" property="level"/>
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="file_id" jdbcType="INTEGER" property="fileId"/>
+        <result column="mark" jdbcType="INTEGER" property="mark"/>
     </resultMap>
 
     <select id="selectAll" resultMap="BaseResultMap">
@@ -15,13 +16,16 @@
             <if test="fileId != 0">
                 file_id=#{fileId}
             </if>
+            <if test="mark!= 0">
+                and mark=#{mark}
+            </if>
         </where>
         order by id asc
     </select>
 
     <insert id="insert" parameterType="com.example.sharding.entity.ApiFiles">
-        insert into api_assets (name, level,type,file_id)
-        values (#{name}, #{level},#{type},#{fileId})
+        insert into api_assets (name, level,type,file_id,mark)
+        values (#{name}, #{level},#{type},#{fileId},#{mark})
     </insert>
 
     <delete id="deleteAll">

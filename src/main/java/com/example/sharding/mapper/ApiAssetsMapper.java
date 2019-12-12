@@ -10,7 +10,7 @@ public interface ApiAssetsMapper {
 
     ApiAssets selectByPrimaryKey(Integer id);
 
-    List<ApiAssets> selectAll(@Param("fileId")Integer fileId);
+    List<ApiAssets> selectAll(@Param("fileId")Integer fileId,@Param("mark")Integer mark);
 
     void deleteAll();
 }

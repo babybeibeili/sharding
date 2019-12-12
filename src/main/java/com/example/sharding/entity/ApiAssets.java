@@ -22,6 +22,7 @@ public class ApiAssets {
 
     @Column(name = "file_id")
     private Integer fileId;
+    private Integer mark;
 
 
     /**
@@ -100,6 +101,20 @@ public class ApiAssets {
      */
     public void setFileId(Integer fileId) {
         this.fileId = fileId;
+    }
+
+    /**
+     * @return mark
+     */
+    public Integer getMark() {
+        return mark;
+    }
+
+    /**
+     * @param mark
+     */
+    public void setMark(Integer mark) {
+        this.mark = mark;
     }
 
 }

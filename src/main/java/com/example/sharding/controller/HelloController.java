@@ -86,7 +86,7 @@ public class HelloController {
     }
 
     @RequestMapping("/addAssets")
-    public String addAssets() {
+    public String addAssets(@RequestParam(defaultValue = "1")Integer mark) {
 
         System.out.println("Insert Assets--------------");
         int i = 0;
@@ -96,6 +96,7 @@ public class HelloController {
             info.setLevel(1);
             info.setFileId((int) (Math.random() * 50) + 1);
             info.setType("Wall");
+            info.setMark(mark);
             assetsMapper.insert(info);
         }
         System.out.println("over..........");
@@ -112,9 +113,9 @@ public class HelloController {
     }
 
     @RequestMapping("/assetsList")
-    public Result assetsList(@RequestParam(defaultValue = "0") Integer id) {
+    public Result assetsList(@RequestParam(defaultValue = "0") Integer id,@RequestParam(defaultValue = "0") Integer mark) {
 
-        List<ApiAssets> list = assetsMapper.selectAll(id);
+        List<ApiAssets> list = assetsMapper.selectAll(id,mark);
         return Result.success(200, list, String.valueOf(list.size()));
     }
 

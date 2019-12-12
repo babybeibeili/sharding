@@ -1,7 +1,6 @@
 package com.example.sharding.core;
 
 import com.google.common.base.Preconditions;
-import io.shardingsphere.core.keygen.DefaultKeyGenerator;
 import io.shardingsphere.core.keygen.KeyGenerator;
 import io.shardingsphere.core.keygen.TimeService;
 import lombok.Setter;
